@@ -3,11 +3,16 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 
-# --- Cargar el modelo Keras ---
 @st.cache_resource
 def cargar_modelo():
-    tf.keras.models.load_model("model.keras")
-  # Asegúrate de que el nombre coincida
+    # 1) Construye la ruta al modelo dentro de tu repo
+    base_dir   = os.path.dirname(__file__)
+    ruta_model = os.path.join(base_dir, "model.keras")  # o "modelo.tflite" si usas TFLite
+
+    # 2) Carga el modelo y guárdalo en la variable `modelo`
+    modelo = tf.keras.models.load_model(ruta_model)
+
+    # 3) Devuélvelo
     return modelo
 
 # --- Preprocesamiento para VGG16 ---
