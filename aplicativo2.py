@@ -6,7 +6,7 @@ import tensorflow as tf
 # --- Cargar el modelo Keras ---
 @st.cache_resource
 def cargar_modelo():
-    tf.keras.models.load_model("C:/Users/GIOVANY/Documents/SB/Electiva 3/python/model.keras")
+    tf.keras.models.load_model("model.keras")
   # Asegúrate de que el nombre coincida
     return modelo
 
